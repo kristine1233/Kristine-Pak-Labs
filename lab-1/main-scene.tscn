@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqnwitty3q5bs"]
+
+[ext_resource type="Texture2D" uid="uid://c1qnj40082776" path="res://kitty.png" id="1_hx7xu"]
+[ext_resource type="Texture2D" uid="uid://cp54furarkyd1" path="res://pup.png" id="2_tpn1k"]
+[ext_resource type="PackedScene" uid="uid://crluljr48h7lq" path="res://tree.tscn" id="3_j76ql"]
+
+[node name="Cat" type="Node2D"]
+
+[node name="Kitty" type="Sprite2D" parent="."]
+position = Vector2(303, 240)
+scale = Vector2(0.141034, 0.156006)
+texture = ExtResource("1_hx7xu")
+
+[node name="Pup" type="Sprite2D" parent="."]
+position = Vector2(415, 269)
+scale = Vector2(0.309171, 0.295561)
+texture = ExtResource("2_tpn1k")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Tree" parent="Node2D" instance=ExtResource("3_j76ql")]
+position = Vector2(564, 191)
+
+[node name="Tree2" parent="Node2D" instance=ExtResource("3_j76ql")]
+position = Vector2(123.233, 178.571)
+scale = Vector2(0.179407, 0.19122)
+
+[node name="Tree3" parent="Node2D" instance=ExtResource("3_j76ql")]
+position = Vector2(728, 196)
