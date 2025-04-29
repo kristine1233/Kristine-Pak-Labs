@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dyk5qtcbmpvj2"]
 
 [ext_resource type="Texture2D" uid="uid://dvcij1bndkcir" path="res://icon.svg" id="1_xgjpy"]
-[ext_resource type="Script" path="res://character_body_3d.gd" id="2_pfeo1"]
+[ext_resource type="Script" uid="uid://bufnhbgf3r542" path="res://character_body_3d.gd" id="2_pfeo1"]
 
 [sub_resource type="Sky" id="Sky_hhl8c"]
 
