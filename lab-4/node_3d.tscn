@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyk5qtcbmpvj2"]
+
+[ext_resource type="Texture2D" uid="uid://dvcij1bndkcir" path="res://icon.svg" id="1_xgjpy"]
+[ext_resource type="Script" path="res://character_body_3d.gd" id="2_pfeo1"]
+
+[sub_resource type="Sky" id="Sky_hhl8c"]
+
+[sub_resource type="Environment" id="Environment_r573u"]
+background_mode = 3
+background_energy_multiplier = 1.1
+sky = SubResource("Sky_hhl8c")
+ambient_light_source = 1
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_v6vpj"]
+
+[sub_resource type="Compositor" id="Compositor_yoq0r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ahyf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s4eyn"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18166, -1.23743, 0)
+texture = ExtResource("1_xgjpy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999999, 0.00108204, 0, -1.48811e-05, 0.0137528, -0.999905, -0.00108194, 0.999905, 0.0137528, 4.52089, -3.49294, -3.05984)
+use_collision = true
+size = Vector3(32.8623, 19.4333, 0.001)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CSGBox3D"]
+environment = SubResource("Environment_r573u")
+camera_attributes = SubResource("CameraAttributesPhysical_v6vpj")
+compositor = SubResource("Compositor_yoq0r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.979304, 0.202394, 0, -0.202394, 0.979304, 0, 0, 0, 1, 0.976035, -9.73966, 3.65841)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.979304, 0.202394, 0, -0.202394, 0.979304, 0, 0, 0, 1, -3.46164, -1.07765, 3.65841)
+script = ExtResource("2_pfeo1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(0.979304, -0.202104, -0.0108324, 0.202394, 0.977901, 0.0524135, 0, -0.0535211, 0.998567, 3.53583, -0.00497985, -3.65841)
+shape = SubResource("CapsuleShape3D_7ahyf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(0.979304, -0.202104, -0.0108324, 0.202394, 0.977901, 0.0524135, 0, -0.0535211, 0.998567, 3.11917, 2.01106, -3.65841)
+mesh = SubResource("CapsuleMesh_s4eyn")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.986496, -0.0356844, -0.159848, 0.035225, 0.999363, -0.00570772, 0.15995, -2.32246e-09, 0.987125, -0.579231, -1.13754, 5.15853)
+fov = 74.1727
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 1.49012e-08, 0, 0, 0.998567, 0.0535211, 0, -0.0535211, 0.998567, 0, -1.97603, -2.94491)
+use_collision = true
+radius = 0.001
